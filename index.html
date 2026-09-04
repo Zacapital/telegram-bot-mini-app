@@ -9,56 +9,209 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--tg-theme-bg-color, #f4f4f5);
-            color: var(--tg-theme-text-color, #222);
+            /* Rasmga moslangan zamonaviy och ko'k gradient fon */
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+            color: #1e1b4b;
             margin: 0;
             padding: 16px;
         }
-        h1 {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-        p {
-            color: var(--tg-theme-hint-color, #666);
-            font-size: 14px;
+        .lang-selector {
+            display: flex;
+            gap: 8px;
             margin-bottom: 20px;
         }
+        .lang-selector button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ffffff;
+            color: #4f46e5;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.1);
+            transition: all 0.2s;
+        }
+        .lang-selector button:active {
+            transform: scale(0.95);
+            background-color: #4f46e5;
+            color: #ffffff;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 6px;
+            color: #312e81;
+        }
+        p {
+            color: #6366f1;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 24px 0 12px 0;
+            color: #312e81;
+        }
         .card {
-            background-color: var(--tg-theme-secondary-bg-color, #fff);
-            padding: 12px 16px;
-            border-radius: 12px;
+            background-color: #ffffff;
+            padding: 14px 16px;
+            border-radius: 14px;
             margin-bottom: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08);
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+            border-left: 4px solid #6366f1;
+        }
+        .card:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 6px rgba(79, 70, 229, 0.12);
         }
         .card h3 {
             margin: 0 0 6px 0;
-            font-size: 16px;
+            font-size: 15px;
+            color: #1e1b4b;
         }
         .card span {
             font-size: 12px;
-            color: #3b82f6;
+            color: #4f46e5;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
-    <h1>Treyding Darsliklari</h1>
-    <p>Jamiyatimiz uchun maxsus tayyorlangan qo'llanmalar:</p>
-
-    <div class="card">
-        <h3>1. Treyding Asoslari (Noldan boshlovchilarga)</h3>
-        <span>10 daqiqa • O'qish</span>
+    <!-- Til tanlash paneli -->
+    <div class="lang-selector">
+        <button onclick="setLanguage('uz')">🇺🇿 O'zbek</button>
+        <button onclick="setLanguage('ru')">🇷🇺 Русский</button>
+        <button onclick="setLanguage('en')">🇬🇧 English</button>
     </div>
 
-    <div class="card">
-        <h3>2. Texnik Tahlil va Grafik Shakllari</h3>
-        <span>15 daqiqa • O'qish</span>
+    <!-- Sarlavha va Tavsif -->
+    <h1 id="main-title">Xush kelibsiz!</h1>
+    <p id="main-desc">Treyding jamiyatimizga xush kelibsiz.</p>
+
+    <div class="section-title" id="edu-title">Treyding Darsliklari</div>
+
+    <div class="card" onclick="alert('Tez kunda!')">
+        <h3 id="c1-title">1. Treyding Asoslari (Noldan boshlovchilarga)</h3>
+        <span id="c1-sub">10 daqiqa • O'qish</span>
     </div>
 
-    <div class="card">
-        <h3>3. Riskni Boshqarish (Risk Management)</h3>
-        <span>12 daqiqa • O'qish</span>
+    <div class="card" onclick="alert('Tez kunda!')">
+        <h3 id="c2-title">2. Texnik Tahlil va Grafik Shakllari</h3>
+        <span id="c2-sub">15 daqiqa • O'qish</span>
     </div>
+
+    <div class="card" onclick="alert('Tez kunda!')">
+        <h3 id="c3-title">3. Riskni Boshqarish (Risk Management)</h3>
+        <span id="c3-sub">12 daqiqa • O'qish</span>
+    </div>
+
+    <div class="section-title" id="comm-title">Jamiyat va Xizmatlar</div>
+
+    <div class="card" onclick="alert('Signal kanaliga o\'tish')">
+        <h3 id="c4-title">💎 VIP Signal Kanali</h3>
+        <span id="c4-sub">Kunlik foydali signallar</span>
+    </div>
+
+    <div class="card" onclick="alert('Discord ga o\'tish')">
+        <h3 id="c5-title">🎧 Discord Community</h3>
+        <span id="c5-sub">Jonli ovozli suhbatlar</span>
+    </div>
+
+    <div class="card" onclick="alert('Mentorship bo\'limi')">
+        <h3 id="c6-title">🚀 Oylik Mentorship</h3>
+        <span id="c6-sub">Shaxsiy ustozlik va qabul</span>
+    </div>
+
+<script>
+const translations = {
+    uz: {
+        mainTitle: "Xush kelibsiz!",
+        mainDesc: "Treyding jamiyatimizga xush kelibsiz.",
+        eduTitle: "Treyding Darsliklari",
+        c1Title: "1. Treyding Asoslari (Noldan boshlovchilarga)",
+        c1Sub: "10 daqiqa • O'qish",
+        c2Title: "2. Texnik Tahlil va Grafik Shakllari",
+        c2Sub: "15 daqiqa • O'qish",
+        c3Title: "3. Riskni Boshqarish (Risk Management)",
+        c3Sub: "12 daqiqa • O'qish",
+        commTitle: "Jamiyat va Xizmatlar",
+        c4Title: "💎 VIP Signal Kanali",
+        c4Sub: "Kunlik foydali signallar",
+        c5Title: "🎧 Discord Community",
+        c5Sub: "Jonli ovozli suhbatlar",
+        c6Title: "🚀 Oylik Mentorship",
+        c6Sub: "Shaxsiy ustozlik va qabul"
+    },
+    ru: {
+        mainTitle: "Добро пожаловать!",
+        mainDesc: "Добро пожаловать в наше трейдинг сообщество.",
+        eduTitle: "Уроки трейдинга",
+        c1Title: "1. Основы трейдинга (Для новичков)",
+        c1Sub: "10 минут • Читать",
+        c2Title: "2. Технический анализ и паттерны",
+        c2Sub: "15 минут • Читать",
+        c3Title: "3. Управление рисками (Risk Management)",
+        c3Sub: "12 минут • Читать",
+        commTitle: "Сообщество и услуги",
+        c4Title: "💎 VIP Сигнальный канал",
+        c4Sub: "Ежедневные прибыльные сигналы",
+        c5Title: "🎧 Discord Сообщество",
+        c5Sub: "Живые голосовые чаты",
+        c6Title: "🚀 Ежемесячное наставничество",
+        c6Sub: "Личное менторство и набор"
+    },
+    en: {
+        mainTitle: "Welcome!",
+        mainDesc: "Welcome to our trading community.",
+        eduTitle: "Trading Lessons",
+        c1Title: "1. Trading Basics (For Beginners)",
+        c1Sub: "10 mins • Read",
+        c2Title: "2. Technical Analysis & Chart Patterns",
+        c2Sub: "15 mins • Read",
+        c3Title: "3. Risk Management",
+        c3Sub: "12 mins • Read",
+        commTitle: "Community & Services",
+        c4Title: "💎 VIP Signals Channel",
+        c4Sub: "Daily profitable signals",
+        c5Title: "🎧 Discord Community",
+        c5Sub: "Live voice chats",
+        c6Title: "Monthly Mentorship",
+        c6Sub: "Personal mentorship & admission"
+    }
+};
+
+function setLanguage(lang) {
+    localStorage.setItem('selectedLang', lang);
+    const t = translations[lang];
+    
+    document.getElementById('main-title').innerText = t.mainTitle;
+    document.getElementById('main-desc').innerText = t.mainDesc;
+    document.getElementById('edu-title').innerText = t.eduTitle;
+    document.getElementById('c1-title').innerText = t.c1Title;
+    document.getElementById('c1-sub').innerText = t.c1Sub;
+    document.getElementById('c2-title').innerText = t.c2Title;
+    document.getElementById('c2-sub').innerText = t.c2Sub;
+    document.getElementById('c3-title').innerText = t.c3Title;
+    document.getElementById('c3-sub').innerText = t.c3Sub;
+    document.getElementById('comm-title').innerText = t.commTitle;
+    document.getElementById('c4-title').innerText = t.c4Title;
+    document.getElementById('c4-sub').innerText = t.c4Sub;
+    document.getElementById('c5-title').innerText = t.c5Title;
+    document.getElementById('c5-sub').innerText = t.c5Sub;
+    document.getElementById('c6-title').innerText = t.c6Title;
+    document.getElementById('c6-sub').innerText = t.c6Sub;
+}
+
+window.onload = () => {
+    const savedLang = localStorage.getItem('selectedLang') || 'uz';
+    setLanguage(savedLang);
+};
+</script>
 
 </body>
 </html>
