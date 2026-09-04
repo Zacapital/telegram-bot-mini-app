@@ -47,6 +47,44 @@
             margin-bottom: 20px;
             font-weight: 500;
         }
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .menu-card {
+            background-color: #ffffff;
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.08);
+            text-decoration: none;
+            color: #1e1b4b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .menu-card:active {
+            transform: scale(0.98);
+        }
+        .menu-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #4f46e5;
+        }
+        .menu-card-badge {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background-color: #e0e7ff;
+            color: #4f46e5;
+        }
+        .menu-card-badge.soon {
+            background-color: #f3f4f6;
+            color: #9ca3af;
+        }
     </style>
 </head>
 <body>
@@ -62,19 +100,53 @@
     <h1 id="main-title">Xush kelibsiz!</h1>
     <p id="main-desc">Treyding jamiyatimizga xush kelibsiz.</p>
 
+    <!-- Asosiy Bo'limlar -->
+    <div class="menu-container">
+        <a href="#" class="menu-card">
+            <span class="menu-card-title" id="btn-qt">QT Community</span>
+            <span class="menu-card-badge" id="badge-join">Kirish</span>
+        </a>
+        <a href="#" class="menu-card">
+            <span class="menu-card-title" id="btn-signals">Signal Channel</span>
+            <span class="menu-card-badge" id="badge-view">Ko'rish</span>
+        </a>
+        <a href="#" class="menu-card" style="opacity: 0.8;">
+            <span class="menu-card-title" id="btn-mentorship">Mentorship</span>
+            <span class="menu-card-badge soon" id="badge-soon">Tez kunda</span>
+        </a>
+    </div>
+
 <script>
 const translations = {
     uz: {
         mainTitle: "Xush kelibsiz!",
-        mainDesc: "Treyding jamiyatimizga xush kelibsiz."
+        mainDesc: "Treyding jamiyatimizga xush kelibsiz.",
+        btnQt: "QT Community",
+        btnSignals: "Signal Channel",
+        btnMentorship: "Mentorship",
+        badgeJoin: "Kirish",
+        badgeView: "Ko'rish",
+        badgeSoon: "Tez kunda"
     },
     ru: {
         mainTitle: "Добро пожаловать!",
-        mainDesc: "Добро пожаловать в наше трейдинг сообщество."
+        mainDesc: "Добро пожаловать в наше трейдинг сообщество.",
+        btnQt: "QT Community (Закрытый Клуб)",
+        btnSignals: "VIP Signal Channel 🔥",
+        btnMentorship: "Mentorship (Pro)",
+        badgeJoin: "Войти",
+        badgeView: "Смотреть",
+        badgeSoon: "Скоро"
     },
     en: {
         mainTitle: "Welcome!",
-        mainDesc: "Welcome to our trading community."
+        mainDesc: "Welcome to our trading community.",
+        btnQt: "QT Community",
+        btnSignals: "Signal Channel",
+        btnMentorship: "Mentorship",
+        badgeJoin: "Join",
+        badgeView: "View",
+        badgeSoon: "Soon"
     }
 };
 
@@ -84,6 +156,12 @@ function setLanguage(lang) {
     
     document.getElementById('main-title').innerText = t.mainTitle;
     document.getElementById('main-desc').innerText = t.mainDesc;
+    document.getElementById('btn-qt').innerText = t.btnQt;
+    document.getElementById('btn-signals').innerText = t.btnSignals;
+    document.getElementById('btn-mentorship').innerText = t.btnMentorship;
+    document.getElementById('badge-join').innerText = t.badgeJoin;
+    document.getElementById('badge-view').innerText = t.badgeView;
+    document.getElementById('badge-soon').innerText = t.badgeSoon;
 }
 
 window.onload = () => {
