@@ -87,7 +87,7 @@
             background-color: #f3f4f6;
             color: #9ca3af;
         }
-        /* Ichki sahifa dizayni */
+        /* Sahifalar boshqaruvi */
         .page {
             display: none;
         }
@@ -173,14 +173,10 @@
         <p id="main-desc">Bu bot sizni rivojlantiradi</p>
 
         <div class="menu-container">
-            <!-- QT Community bo'limiga kirish uchun ikkita alohida yo'nalish -->
-            <div class="menu-card" onclick="openPage('qt-info-page')">
-                <span class="menu-card-title" id="btn-qt-info">📖 QT Community haqida</span>
-                <span class="menu-card-badge" id="badge-info">O'qish</span>
-            </div>
-            <div class="menu-card" onclick="openPage('qt-pricing-page')">
-                <span class="menu-card-title" id="btn-qt-pricing">💳 Obuna bo'lish / Tariflar</span>
-                <span class="menu-card-badge" id="badge-pricing">Sotib olish</span>
+            <!-- QT Community asosiy tugmasi -->
+            <div class="menu-card" onclick="openPage('qt-menu-page')">
+                <span class="menu-card-title" id="btn-qt">QT Community</span>
+                <span class="menu-card-badge" id="badge-qt-main">Ma'lumot / Obuna</span>
             </div>
 
             <div class="menu-card" onclick="alert('Tez kunda ochiladi!')">
@@ -194,9 +190,27 @@
         </div>
     </div>
 
-    <!-- 2. QT COMMUNITY MA'LUMOT SAHIFASI -->
+    <!-- 2. QT COMMUNITY ICHKI MENYUSI (2 TA TUGMA: MA'LUMOT VA OBUNA) -->
+    <div id="qt-menu-page" class="page">
+        <button class="back-btn" onclick="openPage('home-page')">← <span id="back-text-main">Orqaga</span></button>
+        
+        <h1 id="qt-sub-title" style="font-size: 20px; margin-bottom: 16px;">QT Community bo'limi</h1>
+
+        <div class="menu-container">
+            <div class="menu-card" onclick="openPage('qt-info-page')">
+                <span class="menu-card-title" id="btn-sub-info">📖 Ma'lumot</span>
+                <span class="menu-card-badge" id="badge-sub-info">O'qish</span>
+            </div>
+            <div class="menu-card" onclick="openPage('qt-pricing-page')">
+                <span class="menu-card-title" id="btn-sub-pricing">💳 Obuna / Tariflar</span>
+                <span class="menu-card-badge" id="badge-sub-pricing">Sotib olish</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. QT COMMUNITY MA'LUMOT SAHIFASI -->
     <div id="qt-info-page" class="page">
-        <button class="back-btn" onclick="openPage('home-page')">← <span id="back-text-1">Orqaga</span></button>
+        <button class="back-btn" onclick="openPage('qt-menu-page')">← <span id="back-text-1">Orqaga</span></button>
         
         <div class="content-box">
             <h1 id="qt-page-title" style="font-size: 18px; margin-bottom: 12px;">QT Community — Professional treyderlar yopiq ekotizimi</h1>
@@ -214,9 +228,9 @@
         </div>
     </div>
 
-    <!-- 3. QT COMMUNITY TARIFLAR / SOTIB OLISH SAHifASI -->
+    <!-- 4. QT COMMUNITY TARIFLAR / SOTIB OLISH SAHifASI -->
     <div id="qt-pricing-page" class="page">
-        <button class="back-btn" onclick="openPage('home-page')">← <span id="back-text-2">Orqaga</span></button>
+        <button class="back-btn" onclick="openPage('qt-menu-page')">← <span id="back-text-2">Orqaga</span></button>
 
         <h2 id="tariffs-title" style="font-size: 18px; margin-bottom: 14px; color: #312e81;">Obuna Tariflari</h2>
 
@@ -253,14 +267,18 @@ const translations = {
     uz: {
         mainTitle: "Xush kelibsiz!",
         mainDesc: "Bu bot sizni rivojlantiradi",
-        btnQtInfo: "📖 QT Community haqida",
-        btnQtPricing: "💳 Obuna bo'lish / Tariflar",
+        btnQt: "QT Community",
+        badgeQtMain: "Ma'lumot / Obuna",
         btnSignals: "Signal Channel",
         btnMentorship: "Mentorship",
-        badgeInfo: "O'qish",
-        badgePricing: "Sotib olish",
         badgeView: "Obunani faollashtirish",
         badgeSoon: "Tez kunda",
+        qtSubTitle: "QT Community bo'limi",
+        btnSubInfo: "📖 Ma'lumot",
+        btnSubPricing: "💳 Obuna / Tariflar",
+        badgeSubInfo: "O'qish",
+        badgeSubPricing: "Sotib olish",
+        backTextMain: "Orqaga",
         backText1: "Orqaga",
         backText2: "Orqaga",
         qtTitle: "QT Community — Professional treyderlar yopiq ekotizimi",
@@ -283,14 +301,18 @@ const translations = {
     ru: {
         mainTitle: "Добро пожаловать!",
         mainDesc: "Этот бот развивает вас",
-        btnQtInfo: "📖 О QT Community",
-        btnQtPricing: "💳 Подписка / Тарифы",
+        btnQt: "QT Community",
+        badgeQtMain: "Информация / Подписка",
         btnSignals: "VIP Signal Channel 🔥",
         btnMentorship: "Mentorship (Pro)",
-        badgeInfo: "Узнать",
-        badgePricing: "Купить",
         badgeView: "Активировать подписку",
         badgeSoon: "Скоро",
+        qtSubTitle: "Раздел QT Community",
+        btnSubInfo: "📖 Информация",
+        btnSubPricing: "💳 Подписка / Тарифы",
+        badgeSubInfo: "Узнать",
+        badgeSubPricing: "Купить",
+        backTextMain: "Назад",
         backText1: "Назад",
         backText2: "Назад",
         qtTitle: "QT Community — Закрытая экосистема профессиональных трейдеров",
@@ -313,14 +335,18 @@ const translations = {
     en: {
         mainTitle: "Welcome!",
         mainDesc: "This bot develops you",
-        btnQtInfo: "📖 About QT Community",
-        btnQtPricing: "💳 Subscription / Plans",
+        btnQt: "QT Community",
+        badgeQtMain: "Info / Subscription",
         btnSignals: "Signal Channel",
         btnMentorship: "Mentorship",
-        badgeInfo: "Read",
-        badgePricing: "Buy",
         badgeView: "Activate subscription",
         badgeSoon: "Soon",
+        qtSubTitle: "QT Community Section",
+        btnSubInfo: "📖 Information",
+        btnSubPricing: "💳 Subscription / Plans",
+        badgeSubInfo: "Read",
+        badgeSubPricing: "Buy",
+        backTextMain: "Back",
         backText1: "Back",
         backText2: "Back",
         qtTitle: "QT Community — Closed Ecosystem for Professional Traders",
@@ -336,7 +362,7 @@ const translations = {
         `,
         tariffsTitle: "Subscription Plans",
         t1Name: "1 Month", t1Price: "$25",
-        t2Name: "2 Months", t2Price: "$45",
+        t2Name: "2 Months", t1Price: "$45",
         t3Name: "3 Months", t3Price: "$60",
         btnAct: "Activate"
     }
@@ -348,15 +374,20 @@ function setLanguage(lang) {
     
     document.getElementById('main-title').innerText = t.mainTitle;
     document.getElementById('main-desc').innerText = t.mainDesc;
-    document.getElementById('btn-qt-info').innerText = t.btnQtInfo;
-    document.getElementById('btn-qt-pricing').innerText = t.btnQtPricing;
+    document.getElementById('btn-qt').innerText = t.btnQt;
+    document.getElementById('badge-qt-main').innerText = t.badgeQtMain;
     document.getElementById('btn-signals').innerText = t.btnSignals;
     document.getElementById('btn-mentorship').innerText = t.btnMentorship;
-    document.getElementById('badge-info').innerText = t.badgeInfo;
-    document.getElementById('badge-pricing').innerText = t.badgePricing;
     document.getElementById('badge-view').innerText = t.badgeView;
     document.getElementById('badge-soon').innerText = t.badgeSoon;
     
+    document.getElementById('qt-sub-title').innerText = t.qtSubTitle;
+    document.getElementById('btn-sub-info').innerText = t.btnSubInfo;
+    document.getElementById('btn-sub-pricing').innerText = t.btnSubPricing;
+    document.getElementById('badge-sub-info').innerText = t.badgeSubInfo;
+    document.getElementById('badge-sub-pricing').innerText = t.badgeSubPricing;
+    
+    document.getElementById('back-text-main').innerText = t.backTextMain;
     document.getElementById('back-text-1').innerText = t.backText1;
     document.getElementById('back-text-2').innerText = t.backText2;
     document.getElementById('qt-page-title').innerText = t.qtTitle;
