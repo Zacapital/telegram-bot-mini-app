@@ -46,6 +46,7 @@
             font-size: 14px;
             margin-bottom: 20px;
             font-weight: 500;
+            line-height: 1.5;
         }
         .menu-container {
             display: flex;
@@ -63,6 +64,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .menu-card:active {
@@ -85,6 +87,75 @@
             background-color: #f3f4f6;
             color: #9ca3af;
         }
+        /* Ichki sahifa dizayni */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .back-btn {
+            background: none;
+            border: none;
+            color: #4f46e5;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: 16px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .content-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08);
+            margin-bottom: 20px;
+        }
+        .content-box ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .content-box li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #312e81;
+        }
+        .pricing-card {
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.08);
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price-info span {
+            display: block;
+            font-weight: 700;
+            font-size: 16px;
+            color: #1e1b4b;
+        }
+        .price-info small {
+            color: #6366f1;
+            font-weight: 500;
+        }
+        .activate-btn {
+            background-color: #4f46e5;
+            color: #ffffff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .activate-btn:active {
+            background-color: #3730a3;
+        }
     </style>
 </head>
 <body>
@@ -96,57 +167,158 @@
         <button onclick="setLanguage('en')">🇬🇧 English</button>
     </div>
 
-    <!-- Sarlavha va Tavsif -->
-    <h1 id="main-title">Xush kelibsiz!</h1>
-    <p id="main-desc">Treyding jamiyatimizga xush kelibsiz.</p>
+    <!-- 1. ASOSIY SAHIFA (HOME) -->
+    <div id="home-page" class="page active">
+        <h1 id="main-title">Xush kelibsiz!</h1>
+        <p id="main-desc">Bu bot sizni rivojlantiradi</p>
 
-    <!-- Asosiy Bo'limlar -->
-    <div class="menu-container">
-        <a href="#" class="menu-card">
-            <span class="menu-card-title" id="btn-qt">QT Community</span>
-            <span class="menu-card-badge" id="badge-join">Obunani faollashtirish</span>
-        </a>
-        <a href="#" class="menu-card">
-            <span class="menu-card-title" id="btn-signals">Signal Channel</span>
-            <span class="menu-card-badge" id="badge-view">Obunani faollashtirish</span>
-        </a>
-        <a href="#" class="menu-card" style="opacity: 0.8;">
-            <span class="menu-card-title" id="btn-mentorship">Mentorship</span>
-            <span class="menu-card-badge soon" id="badge-soon">Tez kunda</span>
-        </a>
+        <div class="menu-container">
+            <div class="menu-card" onclick="openPage('qt-page')">
+                <span class="menu-card-title" id="btn-qt">QT Community</span>
+                <span class="menu-card-badge" id="badge-join">Kirish</span>
+            </div>
+            <div class="menu-card" onclick="alert('Tez kunda ochiladi!')">
+                <span class="menu-card-title" id="btn-signals">Signal Channel</span>
+                <span class="menu-card-badge" id="badge-view">Obunani faollashtirish</span>
+            </div>
+            <div class="menu-card" style="opacity: 0.8;">
+                <span class="menu-card-title" id="btn-mentorship">Mentorship</span>
+                <span class="menu-card-badge soon" id="badge-soon">Tez kunda</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. QT COMMUNITY ICHKI SAHifASI -->
+    <div id="qt-page" class="page">
+        <button class="back-btn" onclick="openPage('home-page')">← <span id="back-text">Orqaga</span></button>
+        
+        <div class="content-box">
+            <h1 id="qt-page-title" style="font-size: 18px; margin-bottom: 12px;">QT Community — Professional treyderlar yopiq ekotizimi</h1>
+            <p id="qt-page-desc" style="margin-bottom: 15px;">Bozorni mustaqil tahlil qilishda yo‘nalish topa olmayapsizmi? Xatarlarni to‘g‘ri boshqarolmay, emotsiyalarga berilib depozitni minusga kirgizayotgan yoki prop kompaniyalardagi imtihonlarni boy berayotgan bo‘lsangiz, bu yechim aynan siz uchun.</p>
+            
+            <h3 id="qt-features-title" style="font-size: 15px; color: #312e81; margin-bottom: 8px;">Ichkarida sizni nimalar kutmoqda:</h3>
+            <ul id="qt-features-list">
+                <li>📊 <b>Shaxsiy savdo modeli va darsliklar:</b> Bozorga professional yondashish tizimi.</li>
+                <li>📈 <b>Eksklyuziv tahlillar:</b> NASDAQ va XAUUSD bo‘yicha chuqur kunlik hamda haftalik tahlillar.</li>
+                <li>🔴 <b>Jonli savdo (Live Trade):</b> Haftada 3 kun NY sessiyasida birgalikda jonli savdo qilish.</li>
+                <li>🛡 <b>Risk-menejment va Jurnal:</b> Hisob raqamlari uchun individual risk-qoidalar va jurnal.</li>
+                <li>🚀 <b>Prop-imtihon qo‘llanmasi:</b> Prop kompaniya sinovlaridan o‘tish bo‘yicha qo‘llanma.</li>
+                <li>💬 <b>Yopiq jamoa:</b> Fikrdosh treyderlar bilan muloqot va savol-javob.</li>
+            </ul>
+        </div>
+
+        <h2 id="tariffs-title" style="font-size: 18px; margin-bottom: 14px; color: #312e81;">Obuna Tariflari</h2>
+
+        <!-- Tarif 1 -->
+        <div class="pricing-card">
+            <div class="price-info">
+                <span id="t1-name">1 Oylik</span>
+                <small id="t1-price">250,000 so'm / $25</small>
+            </div>
+            <button class="activate-btn" onclick="subscribe('1 month')"><span id="btn-act-1">Faollashtirish</span></button>
+        </div>
+
+        <!-- Tarif 2 -->
+        <div class="pricing-card">
+            <div class="price-info">
+                <span id="t2-name">2 Oylik</span>
+                <small id="t2-price">400,000 so'm / $45</small>
+            </div>
+            <button class="activate-btn" onclick="subscribe('2 months')"><span id="btn-act-2">Faollashtirish</span></button>
+        </div>
+
+        <!-- Tarif 3 -->
+        <div class="pricing-card">
+            <div class="price-info">
+                <span id="t3-name">3 Oylik</span>
+                <small id="t3-price">600,000 so'm / $60</small>
+            </div>
+            <button class="activate-btn" onclick="subscribe('3 months')"><span id="btn-act-3">Faollashtirish</span></button>
+        </div>
     </div>
 
 <script>
 const translations = {
     uz: {
         mainTitle: "Xush kelibsiz!",
-        mainDesc: "Treyding jamiyatimizga xush kelibsiz.",
+        mainDesc: "Bu bot sizni rivojlantiradi",
         btnQt: "QT Community",
         btnSignals: "Signal Channel",
         btnMentorship: "Mentorship",
-        badgeJoin: "Obunani faollashtirish",
+        badgeJoin: "Kirish",
         badgeView: "Obunani faollashtirish",
-        badgeSoon: "Tez kunda"
+        badgeSoon: "Tez kunda",
+        backText: "Orqaga",
+        qtTitle: "QT Community — Professional treyderlar yopiq ekotizimi",
+        qtDesc: "Bozorni mustaqil tahlil qilishda yo‘nalish topa olmayapsizmi? Xatarlarni to‘g‘ri boshqarolmay, emotsiyalarga berilib depozitni minusga kirgizayotgan yoki prop kompaniyalardagi imtihonlarni boy berayotgan bo‘lsangiz, bu yechim aynan siz uchun.",
+        featuresTitle: "Ichkarida sizni nimalar kutmoqda:",
+        features: `
+            <li>📊 <b>Shaxsiy savdo modeli va darsliklar:</b> Bozorga professional yondashish tizimi.</li>
+            <li>📈 <b>Eksklyuziv tahlillar:</b> NASDAQ va XAUUSD bo‘yicha chuqur kunlik hamda haftalik tahlillar.</li>
+            <li>🔴 <b>Jonli savdo (Live Trade):</b> Haftada 3 kun NY sessiyasida birgalikda jonli savdo qilish.</li>
+            <li>🛡 <b>Risk-menejment va Jurnal:</b> Hisob raqamlari uchun individual risk-qoidalar va jurnal.</li>
+            <li>🚀 <b>Prop-imtihon qo‘llanmasi:</b> Prop kompaniya sinovlaridan o‘tish bo‘yicha qo‘llanma.</li>
+            <li>💬 <b>Yopiq jamoa:</b> Fikrdosh treyderlar bilan muloqot va savol-javob.</li>
+        `,
+        tariffsTitle: "Obuna Tariflari",
+        t1Name: "1 Oylik", t1Price: "250,000 so'm",
+        t2Name: "2 Oylik", t2Price: "400,000 so'm",
+        t3Name: "3 Oylik", t3Price: "600,000 so'm",
+        btnAct: "Faollashtirish"
     },
     ru: {
         mainTitle: "Добро пожаловать!",
-        mainDesc: "Добро пожаловать в наше трейдинг сообщество.",
+        mainDesc: "Этот бот развивает вас",
         btnQt: "QT Community (Закрытый Клуб)",
         btnSignals: "VIP Signal Channel 🔥",
         btnMentorship: "Mentorship (Pro)",
-        badgeJoin: "Активировать подписку",
+        badgeJoin: "Войти",
         badgeView: "Активировать подписку",
-        badgeSoon: "Скоро"
+        badgeSoon: "Скоро",
+        backText: "Назад",
+        qtTitle: "QT Community — Закрытая экосистема профессиональных трейдеров",
+        qtDesc: "Трудно найти четкое направление при анализе рынка? Если вы не умеете правильно управлять рисками, поддаетесь эмоциям, сливаете депозиты или теряете проп-аккаунты, это решение создано для вас.",
+        featuresTitle: "Что вас ждет внутри:",
+        features: `
+            <li>📊 <b>Личная торговая модель и уроки:</b> Понятная система профессионального подхода к рынку.</li>
+            <li>📈 <b>Эксклюзивный анализ:</b> Глубокий ежедневный и еженедельный анализ по NASDAQ и XAUUSD.</li>
+            <li>🔴 <b>Прямые эфиры (Live Trade):</b> Торговля и разбор рынка во время NY сессии 3 раза в неделю.</li>
+            <li>🛡 <b>Риск-менеджмент и Журнал:</b> Индивидуальные правила риск-менеджмента и торговый журнал.</li>
+            <li>🚀 <b>Руководство по проп-аккаунтам:</b> Инструкция для прохождения испытаний в проп-компаниях.</li>
+            <li>💬 <b>Закрытое сообщество:</b> Среда единомышленников для совместной торговли.</li>
+        `,
+        tariffsTitle: "Тарифы подписки",
+        t1Name: "1 Месяц", t1Price: "$25",
+        t2Name: "2 Месяца", t2Price: "$45",
+        t3Name: "3 Месяца", t3Price: "$60",
+        btnAct: "Активировать"
     },
     en: {
         mainTitle: "Welcome!",
-        mainDesc: "Welcome to our trading community.",
+        mainDesc: "This bot develops you",
         btnQt: "QT Community",
         btnSignals: "Signal Channel",
         btnMentorship: "Mentorship",
-        badgeJoin: "Activate subscription",
+        badgeJoin: "Open",
         badgeView: "Activate subscription",
-        badgeSoon: "Soon"
+        badgeSoon: "Soon",
+        backText: "Back",
+        qtTitle: "QT Community — Closed Ecosystem for Professional Traders",
+        qtDesc: "Struggling to find clear market direction? If you fail to manage risks, let emotions drain your balance, or lose prop firm accounts, this solution is built for you.",
+        featuresTitle: "What you get inside:",
+        features: `
+            <li>📊 <b>Personal Trading Model & Lessons:</b> Step-by-step professional system.</li>
+            <li>📈 <b>Exclusive Analysis:</b> Deep daily and weekly breakdowns focusing on NASDAQ and XAUUSD.</li>
+            <li>Live Trade Sessions: Real-time trading during the NY session 3 days a week.</li>
+            <li>🛡 <b>Risk Management & Journal:</b> Individual risk management frameworks and trading journal.</li>
+            <li>🚀 <b>Prop Firm Guidebook:</b> My personal guidebook to pass evaluations successfully.</li>
+            <li>💬 <b>Closed Community:</b> A collaborative environment to trade with peers.</li>
+        `,
+        tariffsTitle: "Subscription Plans",
+        t1Name: "1 Month", t1Price: "$25",
+        t2Name: "2 Months", t2Price: "$45",
+        t3Name: "3 Months", t3Price: "$60",
+        btnAct: "Activate"
     }
 };
 
@@ -162,6 +334,39 @@ function setLanguage(lang) {
     document.getElementById('badge-join').innerText = t.badgeJoin;
     document.getElementById('badge-view').innerText = t.badgeView;
     document.getElementById('badge-soon').innerText = t.badgeSoon;
+    
+    document.getElementById('back-text').innerText = t.backText;
+    document.getElementById('qt-page-title').innerText = t.qtTitle;
+    document.getElementById('qt-page-desc').innerText = t.qtDesc;
+    document.getElementById('qt-features-title').innerText = t.featuresTitle;
+    document.getElementById('qt-features-list').innerHTML = t.features;
+    document.getElementById('tariffs-title').innerText = t.tariffsTitle;
+    
+    document.getElementById('t1-name').innerText = t.t1Name;
+    document.getElementById('t1-price').innerText = t.t1Price;
+    document.getElementById('t2-name').innerText = t.t2Name;
+    document.getElementById('t2-price').innerText = t.t2Price;
+    document.getElementById('t3-name').innerText = t.t3Name;
+    document.getElementById('t3-price').innerText = t.t3Price;
+    
+    document.getElementById('btn-act-1').innerText = t.btnAct;
+    document.getElementById('btn-act-2').innerText = t.btnAct;
+    document.getElementById('btn-act-3').innerText = t.btnAct;
+}
+
+function openPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo(0, 0);
+}
+
+function subscribe(plan) {
+    // Bu yerda keyinchalik Telegram Stars yoki to'lov havolasini ulaymiz
+    if (window.Telegram && window.Telegram.WebApp) {
+        Telegram.WebApp.showAlert(plan + " tarifini tanladingiz. To'lov tizimi tez orada ulanadi!");
+    } else {
+        alert(plan + " tarifini tanladingiz.");
+    }
 }
 
 window.onload = () => {
