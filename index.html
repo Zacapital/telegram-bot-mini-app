@@ -114,6 +114,14 @@
             align-items: center;
             gap: 6px;
         }
+        .cover-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+        }
         .content-box {
             background: #ffffff;
             padding: 20px;
@@ -180,19 +188,14 @@
         <p id="main-desc">Bu bot sizni rivojlantiradi</p>
 
         <div class="menu-container">
-            <!-- QT Community asosiy tugmasi -->
             <div class="menu-card" onclick="openPage('qt-menu-page')">
                 <span class="menu-card-title" id="btn-qt">QT Community</span>
                 <span class="menu-card-badge" id="badge-qt-main">Ma'lumot / Obuna</span>
             </div>
-
-            <!-- Signal Channel (Tez kunda) -->
             <div class="menu-card disabled">
                 <span class="menu-card-title" id="btn-signals">Signal Channel</span>
                 <span class="menu-card-badge soon" id="badge-signals-soon">Tez kunda</span>
             </div>
-
-            <!-- Mentorship (Tez kunda) -->
             <div class="menu-card disabled">
                 <span class="menu-card-title" id="btn-mentorship">Mentorship</span>
                 <span class="menu-card-badge soon" id="badge-soon">Tez kunda</span>
@@ -223,6 +226,8 @@
         <button class="back-btn" onclick="openPage('qt-menu-page')">← <span id="back-text-1">Orqaga</span></button>
         
         <div class="content-box">
+            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&auto=format&fit=crop" alt="Trading Community" class="cover-image">
+            
             <h1 id="qt-page-title" style="font-size: 18px; margin-bottom: 12px;">QT Community — Professional treyderlar yopiq ekotizimi</h1>
             <p id="qt-page-desc" style="margin-bottom: 15px;">Bozorni mustaqil tahlil qilishda yo‘nalish topa olmayapsizmi? Xatarlarni to‘g‘ri boshqarolmay, emotsiyalarga berilib depozitni minusga kirgizayotgan yoki prop kompaniyalardagi imtihonlarni boy berayotgan bo‘lsangiz, bu yechim aynan siz uchun.</p>
             
@@ -238,37 +243,28 @@
         </div>
     </div>
 
-    <!-- 4. QT COMMUNITY TARIFLAR / SOTIB OLISH SAHIFASI -->
+    <!-- 4. QT COMMUNITY TARIFLAR / SOTIB OLISH SAHIFASI (2 ta tarif: 1 oylik va 3 oylik) -->
     <div id="qt-pricing-page" class="page">
         <button class="back-btn" onclick="openPage('qt-menu-page')">← <span id="back-text-2">Orqaga</span></button>
 
         <h2 id="tariffs-title" style="font-size: 18px; margin-bottom: 14px; color: #312e81;">Obuna Tariflari</h2>
 
-        <!-- Tarif 1 -->
+        <!-- 1 Oylik Tarif -->
         <div class="pricing-card">
             <div class="price-info">
                 <span id="t1-name">1 Oylik</span>
-                <small id="t1-price">250,000 so'm / $25</small>
+                <small id="t1-price">250,000 so'm</small>
             </div>
-            <button class="activate-btn" onclick="subscribe('1 month')"><span id="btn-act-1">Faollashtirish</span></button>
+            <button class="activate-btn" onclick="openTribute()"><span id="btn-act-1">Join</span></button>
         </div>
 
-        <!-- Tarif 2 -->
+        <!-- 3 Oylik Tarif -->
         <div class="pricing-card">
             <div class="price-info">
-                <span id="t2-name">2 Oylik</span>
-                <small id="t2-price">400,000 so'm / $45</small>
+                <span id="t2-name">3 Oylik</span>
+                <small id="t2-price">600,000 so'm</small>
             </div>
-            <button class="activate-btn" onclick="subscribe('2 months')"><span id="btn-act-2">Faollashtirish</span></button>
-        </div>
-
-        <!-- Tarif 3 -->
-        <div class="pricing-card">
-            <div class="price-info">
-                <span id="t3-name">3 Oylik</span>
-                <small id="t3-price">600,000 so'm / $60</small>
-            </div>
-            <button class="activate-btn" onclick="subscribe('3 months')"><span id="btn-act-3">Faollashtirish</span></button>
+            <button class="activate-btn" onclick="openTribute()"><span id="btn-act-2">Join</span></button>
         </div>
     </div>
 
@@ -304,43 +300,8 @@ const translations = {
         `,
         tariffsTitle: "Obuna Tariflari",
         t1Name: "1 Oylik", t1Price: "250,000 so'm",
-        t2Name: "2 Oylik", t2Price: "400,000 so'm",
-        t3Name: "3 Oylik", t3Price: "600,000 so'm",
-        btnAct: "Faollashtirish"
-    },
-    ru: {
-        mainTitle: "Добро пожаловать!",
-        mainDesc: "Этот бот развивает вас",
-        btnQt: "QT Community",
-        badgeQtMain: "Информация / Подписка",
-        btnSignals: "Signal Channel",
-        btnMentorship: "Mentorship",
-        badgeSignalsSoon: "Скоро",
-        badgeSoon: "Скоро",
-        qtSubTitle: "Раздел QT Community",
-        btnSubInfo: "📖 Информация",
-        btnSubPricing: "💳 Подписка / Тарифы",
-        badgeSubInfo: "Узнать",
-        badgeSubPricing: "Купить",
-        backTextMain: "Назад",
-        backText1: "Назад",
-        backText2: "Назад",
-        qtTitle: "QT Community — Закрытая экосистема профессиональных трейдеров",
-        qtDesc: "Трудно найти четкое направление при анализе рынка? Если вы не умеете правильно управлять рисками, поддаетесь эмоциям, сливаете депозиты или теряете проп-аккаунты, это решение создано для вас.",
-        featuresTitle: "Что вас ждет внутри:",
-        features: `
-            <li>📊 <b>Личная торговая модель и уроки:</b> Понятная система профессионального подхода к рынку.</li>
-            <li>📈 <b>Эксклюзивный анализ:</b> Глубокий ежедневный и еженедельный анализ по NASDAQ и XAUUSD.</li>
-            <li>🔴 <b>Прямые эфиры (Live Trade):</b> Торговля и разбор рынка во время NY сессии 3 раза в неделю.</li>
-            <li>🛡 <b>Риск-менеджмент и Журнал:</b> Индивидуальные правила риск-менеджмента и торговый журнал.</li>
-            <li>🚀 <b>Руководство по проп-аккаунтам:</b> Инструкция для прохождения испытаний в проп-компаниях.</li>
-            <li>💬 <b>Закрытое сообщество:</b> Среда единомышленников для совместной торговли.</li>
-        `,
-        tariffsTitle: "Тарифы подписки",
-        t1Name: "1 Месяц", t1Price: "$25",
-        t2Name: "2 Месяца", t2Price: "$45",
-        t3Name: "3 Месяца", t3Price: "$60",
-        btnAct: "Активировать"
+        t2Name: "3 Oylik", t2Price: "600,000 so'm",
+        btnAct: "Join"
     },
     en: {
         mainTitle: "Welcome!",
@@ -371,10 +332,42 @@ const translations = {
             <li>💬 <b>Closed Community:</b> A collaborative environment to trade with peers.</li>
         `,
         tariffsTitle: "Subscription Plans",
-        t1Name: "1 Month", t1Price: "$25",
-        t2Name: "2 Months", t2Price: "$45",
-        t3Name: "3 Months", t3Price: "$60",
-        btnAct: "Activate"
+        t1Name: "1 Month", t1Price: "18€",
+        t2Name: "3 Months", t2Price: "43€",
+        btnAct: "Join"
+    },
+    ru: {
+        mainTitle: "Добро пожаловать!",
+        mainDesc: "Этот бот развивает вас",
+        btnQt: "QT Community",
+        badgeQtMain: "Информация / Подписка",
+        btnSignals: "Signal Channel",
+        btnMentorship: "Mentorship",
+        badgeSignalsSoon: "Скоро",
+        badgeSoon: "Скоро",
+        qtSubTitle: "Раздел QT Community",
+        btnSubInfo: "📖 Информация",
+        btnSubPricing: "💳 Подписка / Тарифы",
+        badgeSubInfo: "Узнать",
+        badgeSubPricing: "Купить",
+        backTextMain: "Назад",
+        backText1: "Назад",
+        backText2: "Назад",
+        qtTitle: "QT Community — Закрытая экосистема профессиональных трейдеров",
+        qtDesc: "Трудно найти четкое направление при анализе рынка? Если вы не умеете правильно управлять рисками, поддаетесь эмоциям, сливаете депозиты или теряете проп-аккаунты, это решение создано для вас.",
+        featuresTitle: "Что вас ждет внутри:",
+        features: `
+            <li>📊 <b>Личная торговая модель и уроки:</b> Понятная система профессионального подхода к рынку.</li>
+            <li>📈 <b>Эксклюзивный анализ:</b> Глубокий ежедневный и еженедельный анализ по NASDAQ и XAUUSD.</li>
+            <li>🔴 <b>Прямые эфиры (Live Trade):</b> Торговля и разбор рынка во время NY сессии 3 раза в неделю.</li>
+            <li>🛡 <b>Риск-менеджмент и Журнал:</b> Индивидуальные правила риск-менеджмента и торговый журнал.</li>
+            <li>🚀 <b>Руководство по проп-аккаунтам:</b> Инструкция для прохождения испытаний в проп-компаниях.</li>
+            <li>💬 <b>Закрытое сообщество:</b> Среда единомышленников для совместной торговли.</li>
+        `,
+        tariffsTitle: "Тарифы подписки",
+        t1Name: "1 Месяц", t1Price: "18€",
+        t2Name: "3 Месяца", t2Price: "43€",
+        btnAct: "Join"
     }
 };
 
@@ -410,12 +403,9 @@ function setLanguage(lang) {
     document.getElementById('t1-price').innerText = t.t1Price;
     document.getElementById('t2-name').innerText = t.t2Name;
     document.getElementById('t2-price').innerText = t.t2Price;
-    document.getElementById('t3-name').innerText = t.t3Name;
-    document.getElementById('t3-price').innerText = t.t3Price;
     
     document.getElementById('btn-act-1').innerText = t.btnAct;
     document.getElementById('btn-act-2').innerText = t.btnAct;
-    document.getElementById('btn-act-3').innerText = t.btnAct;
 }
 
 function openPage(pageId) {
@@ -424,11 +414,12 @@ function openPage(pageId) {
     window.scrollTo(0, 0);
 }
 
-function subscribe(plan) {
+function openTribute() {
+    const tributeUrl = 'https://t.me/tribute/app?startapp=s13WL';
     if (window.Telegram && window.Telegram.WebApp) {
-        Telegram.WebApp.showAlert(plan + " tarifini tanladingiz. To'lov tizimi tez orada ulanadi!");
+        Telegram.WebApp.openLink(tributeUrl);
     } else {
-        alert(plan + " tarifini tanladingiz.");
+        window.open(tributeUrl, '_blank');
     }
 }
 
