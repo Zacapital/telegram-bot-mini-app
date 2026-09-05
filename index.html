@@ -173,10 +173,16 @@
         <p id="main-desc">Bu bot sizni rivojlantiradi</p>
 
         <div class="menu-container">
-            <div class="menu-card" onclick="openPage('qt-page')">
-                <span class="menu-card-title" id="btn-qt">QT Community</span>
-                <span class="menu-card-badge" id="badge-join">Kirish</span>
+            <!-- QT Community bo'limiga kirish uchun ikkita alohida yo'nalish -->
+            <div class="menu-card" onclick="openPage('qt-info-page')">
+                <span class="menu-card-title" id="btn-qt-info">📖 QT Community haqida</span>
+                <span class="menu-card-badge" id="badge-info">O'qish</span>
             </div>
+            <div class="menu-card" onclick="openPage('qt-pricing-page')">
+                <span class="menu-card-title" id="btn-qt-pricing">💳 Obuna bo'lish / Tariflar</span>
+                <span class="menu-card-badge" id="badge-pricing">Sotib olish</span>
+            </div>
+
             <div class="menu-card" onclick="alert('Tez kunda ochiladi!')">
                 <span class="menu-card-title" id="btn-signals">Signal Channel</span>
                 <span class="menu-card-badge" id="badge-view">Obunani faollashtirish</span>
@@ -188,9 +194,9 @@
         </div>
     </div>
 
-    <!-- 2. QT COMMUNITY ICHKI SAHifASI -->
-    <div id="qt-page" class="page">
-        <button class="back-btn" onclick="openPage('home-page')">← <span id="back-text">Orqaga</span></button>
+    <!-- 2. QT COMMUNITY MA'LUMOT SAHIFASI -->
+    <div id="qt-info-page" class="page">
+        <button class="back-btn" onclick="openPage('home-page')">← <span id="back-text-1">Orqaga</span></button>
         
         <div class="content-box">
             <h1 id="qt-page-title" style="font-size: 18px; margin-bottom: 12px;">QT Community — Professional treyderlar yopiq ekotizimi</h1>
@@ -206,6 +212,11 @@
                 <li>💬 <b>Yopiq jamoa:</b> Fikrdosh treyderlar bilan muloqot va savol-javob.</li>
             </ul>
         </div>
+    </div>
+
+    <!-- 3. QT COMMUNITY TARIFLAR / SOTIB OLISH SAHifASI -->
+    <div id="qt-pricing-page" class="page">
+        <button class="back-btn" onclick="openPage('home-page')">← <span id="back-text-2">Orqaga</span></button>
 
         <h2 id="tariffs-title" style="font-size: 18px; margin-bottom: 14px; color: #312e81;">Obuna Tariflari</h2>
 
@@ -242,13 +253,16 @@ const translations = {
     uz: {
         mainTitle: "Xush kelibsiz!",
         mainDesc: "Bu bot sizni rivojlantiradi",
-        btnQt: "QT Community",
+        btnQtInfo: "📖 QT Community haqida",
+        btnQtPricing: "💳 Obuna bo'lish / Tariflar",
         btnSignals: "Signal Channel",
         btnMentorship: "Mentorship",
-        badgeJoin: "Kirish",
+        badgeInfo: "O'qish",
+        badgePricing: "Sotib olish",
         badgeView: "Obunani faollashtirish",
         badgeSoon: "Tez kunda",
-        backText: "Orqaga",
+        backText1: "Orqaga",
+        backText2: "Orqaga",
         qtTitle: "QT Community — Professional treyderlar yopiq ekotizimi",
         qtDesc: "Bozorni mustaqil tahlil qilishda yo‘nalish topa olmayapsizmi? Xatarlarni to‘g‘ri boshqarolmay, emotsiyalarga berilib depozitni minusga kirgizayotgan yoki prop kompaniyalardagi imtihonlarni boy berayotgan bo‘lsangiz, bu yechim aynan siz uchun.",
         featuresTitle: "Ichkarida sizni nimalar kutmoqda:",
@@ -269,13 +283,16 @@ const translations = {
     ru: {
         mainTitle: "Добро пожаловать!",
         mainDesc: "Этот бот развивает вас",
-        btnQt: "QT Community (Закрытый Клуб)",
+        btnQtInfo: "📖 О QT Community",
+        btnQtPricing: "💳 Подписка / Тарифы",
         btnSignals: "VIP Signal Channel 🔥",
         btnMentorship: "Mentorship (Pro)",
-        badgeJoin: "Войти",
+        badgeInfo: "Узнать",
+        badgePricing: "Купить",
         badgeView: "Активировать подписку",
         badgeSoon: "Скоро",
-        backText: "Назад",
+        backText1: "Назад",
+        backText2: "Назад",
         qtTitle: "QT Community — Закрытая экосистема профессиональных трейдеров",
         qtDesc: "Трудно найти четкое направление при анализе рынка? Если вы не умеете правильно управлять рисками, поддаетесь эмоциям, сливаете депозиты или теряете проп-аккаунты, это решение создано для вас.",
         featuresTitle: "Что вас ждет внутри:",
@@ -296,20 +313,23 @@ const translations = {
     en: {
         mainTitle: "Welcome!",
         mainDesc: "This bot develops you",
-        btnQt: "QT Community",
+        btnQtInfo: "📖 About QT Community",
+        btnQtPricing: "💳 Subscription / Plans",
         btnSignals: "Signal Channel",
         btnMentorship: "Mentorship",
-        badgeJoin: "Open",
+        badgeInfo: "Read",
+        badgePricing: "Buy",
         badgeView: "Activate subscription",
         badgeSoon: "Soon",
-        backText: "Back",
+        backText1: "Back",
+        backText2: "Back",
         qtTitle: "QT Community — Closed Ecosystem for Professional Traders",
         qtDesc: "Struggling to find clear market direction? If you fail to manage risks, let emotions drain your balance, or lose prop firm accounts, this solution is built for you.",
         featuresTitle: "What you get inside:",
         features: `
             <li>📊 <b>Personal Trading Model & Lessons:</b> Step-by-step professional system.</li>
             <li>📈 <b>Exclusive Analysis:</b> Deep daily and weekly breakdowns focusing on NASDAQ and XAUUSD.</li>
-            <li>Live Trade Sessions: Real-time trading during the NY session 3 days a week.</li>
+            <li>🔴 <b>Live Trade Sessions:</b> Real-time trading during the NY session 3 days a week.</li>
             <li>🛡 <b>Risk Management & Journal:</b> Individual risk management frameworks and trading journal.</li>
             <li>🚀 <b>Prop Firm Guidebook:</b> My personal guidebook to pass evaluations successfully.</li>
             <li>💬 <b>Closed Community:</b> A collaborative environment to trade with peers.</li>
@@ -328,14 +348,17 @@ function setLanguage(lang) {
     
     document.getElementById('main-title').innerText = t.mainTitle;
     document.getElementById('main-desc').innerText = t.mainDesc;
-    document.getElementById('btn-qt').innerText = t.btnQt;
+    document.getElementById('btn-qt-info').innerText = t.btnQtInfo;
+    document.getElementById('btn-qt-pricing').innerText = t.btnQtPricing;
     document.getElementById('btn-signals').innerText = t.btnSignals;
     document.getElementById('btn-mentorship').innerText = t.btnMentorship;
-    document.getElementById('badge-join').innerText = t.badgeJoin;
+    document.getElementById('badge-info').innerText = t.badgeInfo;
+    document.getElementById('badge-pricing').innerText = t.badgePricing;
     document.getElementById('badge-view').innerText = t.badgeView;
     document.getElementById('badge-soon').innerText = t.badgeSoon;
     
-    document.getElementById('back-text').innerText = t.backText;
+    document.getElementById('back-text-1').innerText = t.backText1;
+    document.getElementById('back-text-2').innerText = t.backText2;
     document.getElementById('qt-page-title').innerText = t.qtTitle;
     document.getElementById('qt-page-desc').innerText = t.qtDesc;
     document.getElementById('qt-features-title').innerText = t.featuresTitle;
@@ -361,7 +384,6 @@ function openPage(pageId) {
 }
 
 function subscribe(plan) {
-    // Bu yerda keyinchalik Telegram Stars yoki to'lov havolasini ulaymiz
     if (window.Telegram && window.Telegram.WebApp) {
         Telegram.WebApp.showAlert(plan + " tarifini tanladingiz. To'lov tizimi tez orada ulanadi!");
     } else {
