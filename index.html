@@ -70,6 +70,13 @@
         .menu-card:active {
             transform: scale(0.98);
         }
+        .menu-card.disabled {
+            opacity: 0.8;
+            cursor: default;
+        }
+        .menu-card.disabled:active {
+            transform: none;
+        }
         .menu-card-title {
             font-size: 16px;
             font-weight: 700;
@@ -179,18 +186,21 @@
                 <span class="menu-card-badge" id="badge-qt-main">Ma'lumot / Obuna</span>
             </div>
 
-            <div class="menu-card" onclick="alert('Tez kunda ochiladi!')">
+            <!-- Signal Channel (Tez kunda) -->
+            <div class="menu-card disabled">
                 <span class="menu-card-title" id="btn-signals">Signal Channel</span>
-                <span class="menu-card-badge" id="badge-view">Obunani faollashtirish</span>
+                <span class="menu-card-badge soon" id="badge-signals-soon">Tez kunda</span>
             </div>
-            <div class="menu-card" style="opacity: 0.8;">
+
+            <!-- Mentorship (Tez kunda) -->
+            <div class="menu-card disabled">
                 <span class="menu-card-title" id="btn-mentorship">Mentorship</span>
                 <span class="menu-card-badge soon" id="badge-soon">Tez kunda</span>
             </div>
         </div>
     </div>
 
-    <!-- 2. QT COMMUNITY ICHKI MENYUSI (2 TA TUGMA: MA'LUMOT VA OBUNA) -->
+    <!-- 2. QT COMMUNITY ICHKI MENYUSI -->
     <div id="qt-menu-page" class="page">
         <button class="back-btn" onclick="openPage('home-page')">← <span id="back-text-main">Orqaga</span></button>
         
@@ -228,7 +238,7 @@
         </div>
     </div>
 
-    <!-- 4. QT COMMUNITY TARIFLAR / SOTIB OLISH SAHifASI -->
+    <!-- 4. QT COMMUNITY TARIFLAR / SOTIB OLISH SAHIFASI -->
     <div id="qt-pricing-page" class="page">
         <button class="back-btn" onclick="openPage('qt-menu-page')">← <span id="back-text-2">Orqaga</span></button>
 
@@ -271,7 +281,7 @@ const translations = {
         badgeQtMain: "Ma'lumot / Obuna",
         btnSignals: "Signal Channel",
         btnMentorship: "Mentorship",
-        badgeView: "Obunani faollashtirish",
+        badgeSignalsSoon: "Tez kunda",
         badgeSoon: "Tez kunda",
         qtSubTitle: "QT Community bo'limi",
         btnSubInfo: "📖 Ma'lumot",
@@ -303,9 +313,9 @@ const translations = {
         mainDesc: "Этот бот развивает вас",
         btnQt: "QT Community",
         badgeQtMain: "Информация / Подписка",
-        btnSignals: "VIP Signal Channel 🔥",
-        btnMentorship: "Mentorship (Pro)",
-        badgeView: "Активировать подписку",
+        btnSignals: "Signal Channel",
+        btnMentorship: "Mentorship",
+        badgeSignalsSoon: "Скоро",
         badgeSoon: "Скоро",
         qtSubTitle: "Раздел QT Community",
         btnSubInfo: "📖 Информация",
@@ -339,7 +349,7 @@ const translations = {
         badgeQtMain: "Info / Subscription",
         btnSignals: "Signal Channel",
         btnMentorship: "Mentorship",
-        badgeView: "Activate subscription",
+        badgeSignalsSoon: "Soon",
         badgeSoon: "Soon",
         qtSubTitle: "QT Community Section",
         btnSubInfo: "📖 Information",
@@ -362,7 +372,7 @@ const translations = {
         `,
         tariffsTitle: "Subscription Plans",
         t1Name: "1 Month", t1Price: "$25",
-        t2Name: "2 Months", t1Price: "$45",
+        t2Name: "2 Months", t2Price: "$45",
         t3Name: "3 Months", t3Price: "$60",
         btnAct: "Activate"
     }
@@ -378,7 +388,7 @@ function setLanguage(lang) {
     document.getElementById('badge-qt-main').innerText = t.badgeQtMain;
     document.getElementById('btn-signals').innerText = t.btnSignals;
     document.getElementById('btn-mentorship').innerText = t.btnMentorship;
-    document.getElementById('badge-view').innerText = t.badgeView;
+    document.getElementById('badge-signals-soon').innerText = t.badgeSignalsSoon;
     document.getElementById('badge-soon').innerText = t.badgeSoon;
     
     document.getElementById('qt-sub-title').innerText = t.qtSubTitle;
